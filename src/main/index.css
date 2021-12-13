@@ -1,0 +1,115 @@
+/* 모든 태그에 적용하고 싶을 때는 " * "를 해주면 된다. */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#header {
+  height: 64px;
+
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid black;
+  /* display : flex;
+      justify-content: center
+      요렇게 해도 자식들이 가운데 정렬 됨. */
+
+  /* border-botto을 그으면 양쪽 여백이 조금 남는 것을 볼 수 있다.
+      이것은 바디 태그에 기본적으로 마진이 적용되어 있어서 그렇다.
+      이럴 때는 바디태그에 마진&패딩을 없에야 한다. */
+}
+
+#body {
+  height: 100%;
+
+  width: 1024px;
+  margin: 0 auto;
+  margin-bottom: 24px;
+}
+
+/* margin에 값을 0 과 auto로 넣으면 가운데 정렬이 된다. */
+
+#footer {
+  height: 200px;
+  background-color: rgb(230, 230, 230);
+}
+
+#banner {
+  height: 300px;
+  background-color: yellow;
+}
+
+#header-area {
+  width: 1024px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+/* 하위에 속해있는 속성에 값을 주려면 ">"를 통해 타고타고 지정해줘도 된다. 아래처럼 */
+#header-area > img {
+  width: 128px;
+  height: 36px;
+}
+
+#banner > img {
+  width: 100%;
+  height: 100%;
+}
+
+#body > h1 {
+  margin-top: 16px;
+}
+
+#product-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.product-card {
+  width: 200px;
+  height: 300px;
+  margin-right: 12px;
+  margin-bottom: 12px;
+  border: 1px solid rgb(230, 230, 230);
+  border-radius: 12px;
+  overflow: hidden;
+}
+/*위에 적힌 오버플로우는 누군가 나를 가리고 있을 떄 걔를 어떻게 할지 처리하는거임 */
+
+.product-img {
+  width: 100%;
+  height: 210px;
+}
+
+.product-contents {
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+}
+
+/* span 태그에 디스플레이랑 플렉스-디렉션 컬럼을 줬는데 내려가네..허허.. */
+
+.product-name {
+  font-size: 14x;
+}
+
+.product-price {
+  font-size: 16px;
+  font-weight: 1000;
+}
+/* 폰트에 두께를 줄 떄는 "font-weigh"를 사용함 */
+
+.product-seller {
+  display: flex;
+  align-items: center;
+}
+
+.product-avatar {
+  width: 24px;
+}

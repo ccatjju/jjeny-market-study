@@ -1,0 +1,72 @@
+<html>
+  <head>
+    <title>마케쿠케</title>
+    <!--  css를 입히려면 stylesheet태그로 해도 되지만 그러면 너무 길어지니까 
+    css파일을 만들어서 아래의 속성들로 불러올 수 있다. -->
+    <link href="index.css" type="text/css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div id="header">
+      <div id="header-area">
+        <img src="icons/logo.png" />
+      </div>
+    </div>
+    <div id="body">
+      <div id="banner">
+        <img src="banners/banner1.png" />
+      </div>
+      <h1>판매되는 상품들</h1>
+      <div id="product-list"></div>
+    </div>
+    <div id="footer"></div>
+  </body>
+  <script>
+    axios
+      .get(
+        "https://5fa6c482-6c98-4ebe-bce4-f3b2b8755500.mock.pstmn.io/products"
+      )
+      .then(function (result) {
+        console.log("통신결과 : ", result);
+        const products = result.data.products;
+
+        var Rolling = "";
+        for (var i = 0; i < products.length; i++) {
+          var input = products[i];
+          Rolling =
+            Rolling +
+            '<div class="product-card">' +
+            "<div>" +
+            ' <a href="https://toss.im">' +
+            '   <img class="product-img" src="' +
+            input.imageUrl +
+            '"/>' +
+            "  </a>" +
+            "  </div>" +
+            '  <div class="product-contents">' +
+            '  <span class="product-name">' +
+            input.name +
+            "</span>" +
+            '   <span class="product-price">' +
+            input.price +
+            "원" +
+            "</span>" +
+            '  <div class="product-seller">' +
+            '  <img class="product-avatar" src="icons/avatar.png" />' +
+            "<span>" +
+            input.seller +
+            "</span>" +
+            "  </div>" +
+            "  </div>" +
+            "  </div>";
+        }
+
+        //밑에 있는 내용이 뭐냐면, 괄호 안에 넣은 cSS를 조작할 수 있게 해주는 것 이다.
+        // 그리고 innerHTML에 값을 넣을 때는 스트링형태로 넣어줘야 하는데 그럴려면 ''와 + 를 붙여줘야 한데
+        document.querySelector("#product-list").innerHTML = Rolling;
+      })
+      .catch(function (error) {
+        console.error("에러났다 : ", error);
+      });
+  </script>
+</html>
