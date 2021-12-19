@@ -1,6 +1,7 @@
 import React from "react";
 import "./index.css";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 function MainPage() {
   const [products, setProducts] = React.useState([]);
@@ -30,11 +31,11 @@ function MainPage() {
           <img src="images/banners/banner1.png" />
         </div>
         <h1>판매되는 상품들</h1>
-        {products.map(function (product, index) {
-          return (
-            <>
-              <div id="product-list">
-                <div className="product-card">
+        <div id="product-list">
+          {products.map(function (product, index) {
+            return (
+              <div className="product-card">
+                <Link className="product-Link" to={`/products/${index}`}>
                   <div>
                     <img className="product-img" src={product.imageUrl}></img>
                   </div>
@@ -51,11 +52,11 @@ function MainPage() {
                       <span>{product.seller}</span>
                     </div>
                   </div>
-                </div>
+                </Link>
               </div>
-            </>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
       <div id="footer"></div>
     </div>

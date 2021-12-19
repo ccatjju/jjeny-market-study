@@ -3,11 +3,24 @@ import "./App.css";
 import Test from "./child.js";
 import TimerComponent from "./timer.js";
 import MainPageComponent from "./main";
+import { Switch, Route } from "react-router-dom";
+import UploadPage from "./upload";
+import ProductPage from "./product";
 
 function App() {
   return (
     <div>
-      <MainPageComponent />
+      <Switch>
+        <Route exact={true} path="/">
+          <MainPageComponent />
+        </Route>
+        <Route exact={true} path="/products/:id">
+          <ProductPage />
+        </Route>
+        <Route exact={true} path="/upload">
+          <UploadPage />
+        </Route>
+      </Switch>
     </div>
   );
 }
