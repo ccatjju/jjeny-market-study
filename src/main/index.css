@@ -9,35 +9,6 @@ body {
   padding: 0;
 }
 
-#header {
-  height: 64px;
-
-  display: flex;
-  justify-content: center;
-  border-bottom: 1px solid black;
-  /* display : flex;
-      justify-content: center
-      요렇게 해도 자식들이 가운데 정렬 됨. */
-
-  /* border-botto을 그으면 양쪽 여백이 조금 남는 것을 볼 수 있다.
-      이것은 바디 태그에 기본적으로 마진이 적용되어 있어서 그렇다.
-      이럴 때는 바디태그에 마진&패딩을 없에야 한다. */
-}
-
-#body {
-  height: 100vh;
-  width: 1024px;
-  margin: 0 auto;
-  margin-bottom: 24px;
-}
-
-/* margin에 값을 0 과 auto로 넣으면 가운데 정렬이 된다. */
-
-#footer {
-  height: 200px;
-  background-color: rgb(230, 230, 230);
-}
-
 #banner {
   height: 300px;
   background-color: yellow;
